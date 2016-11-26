@@ -31,7 +31,7 @@
     "url": "https://github.com/emilylam/weatherclock/issues"
   },
   "homepage": "https://github.com/emilylam/weatherclock#readme",
-  "Dependencies": {
+  "dependencies": {
     "request": "^2.79.0",
     "particle-api-js": "^6.4.0",
     "mathjs": "^3.8.0"
