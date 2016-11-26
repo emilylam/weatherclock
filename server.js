@@ -7,6 +7,7 @@ Emily Lam, November 2016
 */
 
 // Dependencies
+var dotenv = require('dotenv').config();
 var timer = setTimeout(myfunc, 2000);
 var requestDarkSky = require('request');
 var requestParticle = require('request');
@@ -15,7 +16,7 @@ var math = require('mathjs');
 
 // URLs
 var host = 'https://api.darksky.net/forecast/',
-    apiKey = '647c2020485173a21fe8f6e20ee2726e',
+    apiKey = process.env.APIKEY,
     lat = '42.349362',
     lon = '-71.106458',
     exclude = 'daily,hourly,flags,minutely,alerts';

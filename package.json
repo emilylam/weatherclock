@@ -32,8 +32,9 @@
   },
   "homepage": "https://github.com/emilylam/weatherclock#readme",
   "dependencies": {
-    "request": "^2.79.0",
+    "dotenv": "^2.0.0",
+    "mathjs": "^3.8.0",
     "particle-api-js": "^6.4.0",
-    "mathjs": "^3.8.0"
+    "request": "^2.79.0"
   }
 }
