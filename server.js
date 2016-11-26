@@ -6,7 +6,7 @@ POST request to particle.io to pass weather data (string)
 Emily Lam, November 2016
 */
 
-// Dependencies
+// Dependencies/Initializations
 var dotenv = require('dotenv').config();
 var timer = setTimeout(myfunc, 2000);
 var requestDarkSky = require('request');
@@ -14,18 +14,18 @@ var requestParticle = require('request');
 var Particle = require('particle-api-js');
 var math = require('mathjs');
 
-// URLs
+// Construct URLs
 var host = 'https://api.darksky.net/forecast/',
     apiKey = process.env.APIKEY,
-    lat = '42.349362',
-    lon = '-71.106458',
+    lat = process.env.LAT,
+    lon = process.env.LONG,
     exclude = 'daily,hourly,flags,minutely,alerts';
 var urlDarkSky = host + apiKey + '/' + lat + ',' + lon + '?exclude=' + exclude;
 
 var host2 = 'https://api.particle.io/v1/devices/',
-    deviceID = '350027000b47353235303037',
+    deviceID = process.env.DEVICEID,
     func = 'temp',
-    accessToken = '5360d735172348bc8b13e1be1f1bd65683c3b943';
+    accessToken = process.env.ACCESSTOKEN;
 var urlParticle = host2 + deviceID + '/' + func + '?access_token=' + accessToken;
 
 // Variables
