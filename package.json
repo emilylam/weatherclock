@@ -1,0 +1,39 @@
+{
+  "name": "weatherclock",
+  "version": "1.0.0",
+  "description": "server that polls dark sky for weather data and forwards it to the particle cloud for use by the photon",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilylam/weatherclock.git"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "keywords": [
+    "weather",
+    "clock",
+    "noscreens",
+    "LEDs",
+    "darksky",
+    "particle",
+    "cloud",
+    "photon",
+    "nodejs"
+  ],
+  "author": "Emily Lam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilylam/weatherclock/issues"
+  },
+  "homepage": "https://github.com/emilylam/weatherclock#readme",
+  "Dependencies": {
+    "request": "^2.79.0",
+    "particle-api-js": "^6.4.0",
+    "mathjs": "^3.8.0",
+  }
+}
