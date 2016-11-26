@@ -21,11 +21,11 @@ var host = 'https://api.darksky.net/forecast/',
     exclude = 'daily,hourly,flags,minutely,alerts';
 var urlDarkSky = host + apiKey + '/' + lat + ',' + lon + '?exclude=' + exclude;
 
-var host = 'https://api.particle.io/v1/devices/',
+var host2 = 'https://api.particle.io/v1/devices/',
     deviceID = '350027000b47353235303037',
     func = 'temp',
     accessToken = '5360d735172348bc8b13e1be1f1bd65683c3b943';
-var urlParticle = host + deviceID + '/' + func + '?access_token=' + accessToken;
+var urlParticle = host2 + deviceID + '/' + func + '?access_token=' + accessToken;
 
 // Variables
 var currentTemp;
