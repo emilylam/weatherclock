@@ -12,7 +12,7 @@
     "url": "git+https://github.com/emilylam/weatherclock.git"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "4.5.0"
   },
   "keywords": [
     "weather",
@@ -34,6 +34,6 @@
   "Dependencies": {
     "request": "^2.79.0",
     "particle-api-js": "^6.4.0",
-    "mathjs": "^3.8.0",
+    "mathjs": "^3.8.0"
   }
 }
