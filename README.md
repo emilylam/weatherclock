@@ -47,7 +47,7 @@ And if you're deploying on heroku, just add those keys to the Config Variables i
 This is the code that goes on the Photon. You can compile and flash using the web or local IDE provided by Particle -- it's pretty intuitive. Or you can compile and flash using the Command Line Interface (CLI), which is my preference. You'll need to download CLI and dfu-util first. And make sure the photon is in dfu mode before flashing.
 
 ```
-$ particle compile photon device.ino --saveTo firmware.bin
+$ particle compile photon device.ino breathe.h breathe.cpp --saveTo firmware.bin
 $ particle flash --usb firmware.bin
 ```
 

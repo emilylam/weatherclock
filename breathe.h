@@ -18,5 +18,8 @@ Emily Lam, November 2016
 #define FOG     7
 #define PCLOUDY 8
 
+// Functions
+int detBreathePat(String value);
+float setBreatheScale(int breathePat);
 
 #endif

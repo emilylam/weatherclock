@@ -6,7 +6,7 @@ Emily Lam, November 2016
 */
 
 #include <math.h>
-#include "util.h"
+#include "breathe.h"
 
 // Variables
 int testled = D7;
@@ -29,7 +29,10 @@ void setup() {
 
 // Main loop
 void loop() {
-  setBreatheScale(breathePat);
+  breatheScale = setBreatheScale(breathePat);
+  rval = round(breatheScale * (r/ (float) 255));
+  gval = round(breatheScale * (g/ (float) 255));
+  bval = round(breatheScale * (b/ (float) 255));
   RGB.color(rval, gval, bval);
 }
 
@@ -45,7 +48,7 @@ int procTemp(String rcvTemp) {
 // Process icon received
 int procIcon(String rcvIcon) {
   Serial.println(rcvIcon);
-  detBreathePat(rcvIcon);
+  breathePat = detBreathePat(rcvIcon);
   return 1;
 }
 
@@ -76,38 +79,4 @@ void calcRGBvalue(float value) {
     case 5: r = 255; g = 0; b = 255; break;
     default: r = 0; g = 0; b = 0; break;
   }
-}
-
-// Determine breathing cycle based on icon field from Dark Sky
-void detBreathePat(String value) {
-  if (value == "\"partly-cloudy-night\"" || "\"partly-cloudy-day\"") {
-    breathePat = PCLOUDY; }
-  else if (value == "\"clear-day\"" || value == "\"clear-night\"") {
-    breathePat = CLEAR; }
-  else if (value == "\"rain\"") { breathePat = RAIN; }
-  else if (value == "\"snow\"") { breathePat = SNOW; }
-  else if (value == "\"sleet\"") { breathePat = SLEET; }
-  else if (value == "\"wind\"") { breathePat = WIND; }
-  else if (value == "\"fog\"") { breathePat = FOG; }
-  else if (value == "\"cloudy\"") { breathePat = CLOUDY; }
-  else { breathePat = NONE; }
-  Serial.print("Pattern: ");
-  Serial.println(breathePat);
-}
-
-// Set the breathing intensities
-void setBreatheScale(int breathePat) {
-  if (breathePat == PCLOUDY || breathePat == CLOUDY) {
-    breatheScale = (exp(sin(millis()/2000.0*3.1415)) - 0.36787944)*108.0; }
-  else if (breathePat == RAIN || breathePat == SNOW || breathePat == SLEET) {
-    breatheScale = 255; }
-  else if (breathePat == WIND || breathePat == FOG) {
-    breatheScale = 255; }
-  else if (breathePat == NONE || breathePat == CLEAR) {
-    breatheScale = 255; }
-  else {breatheScale = 255; }
-
-  rval = round(breatheScale * (r/ (float) 255));
-  gval = round(breatheScale * (g/ (float) 255));
-  bval = round(breatheScale * (b/ (float) 255));
 }
