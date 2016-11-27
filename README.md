@@ -5,6 +5,8 @@ I wanted to build an aesthetically pleasing analog clock with a touch of simple 
 ### Functionality
 Time is displayed with an analog clock. Weather is displayed with RGB LEDs. Different colors are achieved by varying the intensities on the LEDs. The color displayed by the LEDs is mapped linearly from 0 degrees Fahrenheit (violet) to 100 degrees Fahrenheit (red). Additionally, the breathing/pulsing pattern of the LED will display conditions, such as cloudy, rainy, etc.
 
+![temperature/rainbow mapping](./images/rainbow.png)
+
 ### Implementation:
 
 This is an IoT project through and through. There's three major components to this project. There's the analog part which is the physical object itself. There's the electronics that bridge the gap between physical and digital. And then there's the server that sits in the cloud and retrieves and processes weather data.
