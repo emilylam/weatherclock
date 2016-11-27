@@ -24,12 +24,15 @@ var urlDarkSky = host + apiKey + '/' + lat + ',' + lon + '?exclude=' + exclude;
 
 var host2 = 'https://api.particle.io/v1/devices/',
     deviceID = process.env.DEVICEID,
-    func = 'temp',
+    func1 = 'temp',
+    func2 = 'icon',
     accessToken = process.env.ACCESSTOKEN;
-var urlParticle = host2 + deviceID + '/' + func + '?access_token=' + accessToken;
+var urlParticle1 = host2 + deviceID + '/' + func1 + '?access_token=' + accessToken;
+var urlParticle2 = host2 + deviceID + '/' + func2 + '?access_token=' + accessToken;
 
 // Variables
 var currentTemp;
+var currentIcon;
 var objDarkSky;
 var msg;
 
@@ -46,8 +49,14 @@ function callbackDarkSky(error, response, body) {
     if(objDarkSky.currently.hasOwnProperty('temperature')) {
       currentTemp = objDarkSky.currently.temperature;
       msg = JSON.stringify(currentTemp);
-      requestParticle(urlParticle, {method: 'POST', json: {mes: msg}}, callbackParticle);
+      requestParticle(urlParticle1, {method: 'POST', json: {mes: msg}}, callbackParticle);
       console.log('Temp:', currentTemp);
+    }
+    if(objDarkSky.currently.hasOwnProperty('icon')) {
+      currentIcon = objDarkSky.currently.icon;
+      msg = JSON.stringify(currentIcon);
+      requestParticle(urlParticle2, {method: 'POST', json: {mes: msg}}, callbackParticle);
+      console.log('Icon:', currentIcon);
     }
   }
   else {
