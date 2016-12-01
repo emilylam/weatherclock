@@ -36,10 +36,10 @@ var currentIcon;
 var objDarkSky;
 var msg;
 
-// Timer function to request weather data every 10 seconds
+// Timer function to request weather data every 2 minute
 function myfunc() {
   requestDarkSky(urlDarkSky, {timeout: 1500}, callbackDarkSky);
-  timer = setTimeout(myfunc, 10000);
+  timer = setTimeout(myfunc, 120000);
 }
 
 // Callback function to receive, parse, and forward weather data
