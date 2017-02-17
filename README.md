@@ -2,6 +2,8 @@
 
 I wanted to build an aesthetically pleasing analog clock with a touch of simple electronics and a lightweight app that would allow me to check the current time and weather with just a glance, whether I'm next to it, across the room, half-awake, etc. I'm a bit backwards and don't entirely believe screens are needed in all our smart devices.
 
+![temperature/rainbow mapping](./images/prototype_v1.jpg)
+
 ### Functionality
 Time is displayed with an analog clock. Weather is displayed with RGB LEDs. Different colors are achieved by varying the intensities on the LEDs. The color displayed by the LEDs is mapped linearly from 0 degrees Fahrenheit (violet) to 100 degrees Fahrenheit (red). Additionally, the breathing/pulsing pattern of the LED will display conditions, such as cloudy, rainy, etc.
 

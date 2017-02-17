@@ -5,6 +5,7 @@ Processes weather data and displays it using RGB LEDs
 Emily Lam, November 2016
 */
 
+#include "application.h"
 #include <math.h>
 #include "breathe.h"
 
@@ -16,10 +17,20 @@ int rval,gval,bval;
 int breathePat = NONE;
 float breatheScale = 255;
 
+int white = A5;
+int red = A4;
+int green = WKP;
+int blue = TX;
+int freq = 1000;
+
 // Setup loop
 void setup() {
   Serial.begin(9600);
   pinMode(testled, OUTPUT);
+  pinMode(red, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(blue, OUTPUT);
+  pinMode(white, OUTPUT);
   digitalWrite(testled, LOW);
   Particle.function("temp", procTemp);
   Particle.function("icon", procIcon);
@@ -34,6 +45,9 @@ void loop() {
   gval = round(breatheScale * (g/ (float) 255));
   bval = round(breatheScale * (b/ (float) 255));
   RGB.color(rval, gval, bval);
+  analogWrite(red, rval, freq);
+  analogWrite(green, gval, freq);
+  analogWrite(blue, bval, freq);
 }
 
 // Process temperature received
